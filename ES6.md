@@ -109,3 +109,6 @@ new Promise(function (resolve,reject) {
     console.log(res)
 })
 ```
+
+
+export { default as } from  ES6 语法

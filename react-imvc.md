@@ -242,3 +242,86 @@ fetch 方法会自动补足根域名，只需要自己填写pathname比如说是
 映杰分享
 https://v8.dev/blog/cost-of-javascript-2019  在 2019 年里 JS 执行层面的开销
 相比 js 字面量作为 initial-state，套一层 JSON.parse 可以得到更快的启动速度
+
+
+
+React.createContext() 创建上下文
+
+react-imvc 对 context 上下文的应用。通过 context 提供一个全局态的 store， init component传递的参数(props, context) 中的 context就是 React中的上下文
+
+React组件还有很多个地方可以直接访问父组件提供的Context：
+  - 构造方法
+  ```js
+    constructor(props, context)
+  ```
+  - 生命周期
+  ```js
+   - componentWillReceiveProps(nextProps, nextContext)
+   - shouldComponentUpdate(nextProps, nextState, nextContext)
+   - componetWillUpdate(nextProps, nextState, nextContext)
+  ```
+  - 对于面向函数的无状态组件，可以通过函数的参数直接访问组件的context
+  ```js
+  const StatelessComponent = (props, context) => (
+    ....
+  )
+  ```
+
+  react-hooks useContext
+  https://frontarm.com/james-k-nelson/usecontext-react-hook/ 
+
+React.createContext 用法欠缺点。对于嵌套很深的context使用起来很臃肿
+```js
+import React from 'react'
+
+const CurrentRoute = React.createContext({ path: '/welcome' })
+const CurrentUser = React.createContext({name:'33'})
+const IsStatic = React.createContext(false)
+
+export default function App() {
+  return (
+    <CurrentRoute.Consumer>
+      {currentRoute =>
+        <CurrentUser.Consumer>
+          {currentUser =>
+            <IsStatic.Consumer>
+              {isStatic =>
+                !isStatic &&
+                currentRoute.path === '/welcome' &&
+                (currentUser
+                  ? `Welcome back, ${currentUser.name}!`
+                  : 'Welcome!'
+                )
+              }
+            </IsStatic.Consumer>
+          }
+        </CurrentUser.Consumer>
+      }
+    </CurrentRoute.Consumer>
+  )
+}
+```
+useContext优化: 不用写各种 Consumer
+
+```js
+import React, { useContext } from 'react'
+
+const CurrentRoute = React.createContext({ path: '/welcome' })
+const CurrentUser = React.createContext(undefined)
+const IsStatic = React.createContext(false)
+
+export default function App() {
+  let currentRoute = useContext(CurrentRoute)
+  let currentUser = useContext(CurrentUser)
+  let isStatic = useContext(IsStatic)
+
+  return (
+    !isStatic &&
+    currentRoute.path === '/welcome' &&
+    (currentUser
+      ? `Welcome back, ${currentUser.name}!`
+      : 'Welcome!'
+    )
+  )
+}
+```
