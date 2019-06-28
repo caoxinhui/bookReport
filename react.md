@@ -278,4 +278,97 @@ https://mp.weixin.qq.com/s/fNX-8OBCrD2pFa4cAagUjA vue 的面试题
 今天项目中遇到了一个问题，底部导航，触发点击按道理说应该被return掉，debugger也是显示进入了return的程序，但是双击的时候竟然会促使页面向下滑动，这是什么骚操作。每双击一次都会把页面往下滑动一定距离。然后给事件添加preventDefault竟然就给解决了。这是why
 
 
-做webapp时，ios有个默认双击事件，会缩放页面，并将当前点击的位置居中到屏幕
+做webapp时，ios有个默认双击事件，会缩放页面，并将当前点击的位置居中到屏幕，通过e.preventDefault()阻止该事件发生
+
+
+
+React Refs
+
+
+refs 应用场景
+  - input/video/audio需要控制时，输入框焦点、媒体播放状态
+  - 直接动画控制
+  - 集成第三方库
+
+refs 调用方式
+  - 字符串模式(废弃)
+  - 回调函数
+  - React.createRef()
+
+
+- 字符串模式
+```js
+class List extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+  }
+  componentDidMount() {
+    this.refs.inputEl.focus()
+  }
+  render() {
+    return <input ref="inputEl" />
+  }
+}
+```
+
+- 回调函数模式
+```js
+class List extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+  }
+  _ref = el => {
+    if (el) {
+      if (!this.els) {
+        this.els = []
+      }
+      this.els.push(el)
+    } else {
+      this.els = []
+    }
+  }
+  render() {
+    const { list } = this.props
+    return (
+      <ul>
+        {
+          list.map((item, index) => {
+            return (
+              <li ref={this._ref} key={index}>
+                {item}
+              </li>
+            )
+          })
+        }
+      </ul>
+    )
+  }
+}
+class App extends React.Component {
+  state = {
+    value: "",
+    list: []
+  }
+  onchange = ({ target: { value } }) => {
+    this.setState({ value })
+  }
+  add = () => {
+    const { list, value } = this.state
+    list.push(value)
+    this.setState({
+      value: '',
+      list
+    })
+  }
+  render() {
+    const { value, list } = this.state
+    return (
+      <div className="App">
+        <input value={value} onchange={this.onchange} />
+        <button onClick={this.add}>add</button>
+        <List list={list}></List>
+      </div>
+    )
+  }
+}
+```

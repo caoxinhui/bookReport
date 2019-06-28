@@ -325,3 +325,20 @@ export default function App() {
   )
 }
 ```
+
+
+react-imvc 获取 controller实例
+
+```js
+export default React.createContext()
+```
+
+
+```js
+import { useContext } from 'react'
+import GlobalContext from '../context'
+export default () => {
+  let { ctrl } = useContext(GlobalContext)
+  return ctrl
+}
+```
