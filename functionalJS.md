@@ -1,10 +1,15 @@
 <h2> chapter 4 柯里化 </h2>
+
+高阶函数：将函数作为参数或者返回值是函数的函数。
 ```js
 var add = function (x) {
   return function (y) {
     return x + y
   }
 }
+
+// ES6 写法
+let add = a => b => a + b
 ```
 
 
