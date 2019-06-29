@@ -1,3 +1,13 @@
+<h2> chapter 4 柯里化 </h2>
+```js
+var add = function (x) {
+  return function (y) {
+    return x + y
+  }
+}
+```
+
+
 <h2> chapter 5 </h2>
   - 代码组合
 
@@ -168,4 +178,26 @@ Maybe.of("Malkovich Malkovich").map(matchReg(/a/ig))
 
 错误处理
 
-…… 待完成
+```js
+var Left = function (x) {
+  this.__value = x
+}
+Left.of = function (x) {
+  return new Left()
+}
+Left.prototype.map = function (f) {
+  return this
+}
+var Right = function (x) {
+  this.__value = x
+}
+Right.of = function (x) {
+  return new Right(x)
+}
+Right.prototype.map = function (f) {
+  return Right.of(f(this.__value))
+}
+
+Right.of("rain").map(function (str) { return "b" + str; });
+Right.of({ host: 'localhost', port: 80 }).map(function (str) { return str.host })
+```
