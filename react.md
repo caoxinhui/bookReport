@@ -376,6 +376,25 @@ class App extends React.Component {
 
 React.forwardRef
 
+useCallback 与 useMemo类似
+```js
+const memoizedValue = useMemo(() => computeExpensiveValue(a), [a])
+```
 
-项目内容整理： 
-  
+```js
+function TestUseCallback({ num }) {
+  const memoizedCallback = React.useCallback(
+    () => {
+      return num
+    },
+    []
+  )
+  console.log('记忆 num > ', memoizedCallback()) // 节省性能
+  console.log('原始 num > ', num)
+  return (
+    <div>
+      <p>TestUseCallback</p>
+    </div>
+  )
+}
+```
