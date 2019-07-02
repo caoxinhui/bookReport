@@ -398,3 +398,10 @@ function TestUseCallback({ num }) {
   )
 }
 ```
+
+
+react 源文件执行npm install 报错，改用yarn 安装
+```js
+npm install -g yarn
+yarn install
+```
