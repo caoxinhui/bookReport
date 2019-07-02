@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .wrapper1 {
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
+      background: #00f;
+      position: relative;
+    }
+
+    .wrapper1 img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto
+    }
+
+    .wrapper2 {
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
+      background: #00f;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      text-align: center;
+    }
+
+
+    .wrapper3 {
+      height: 300px;
+      width: 300px;
+      background: #00f;
+      margin: 20px auto
+    }
+
+    .wrapper3 .icenter {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      height: 300px;
+      width: 300px;
+    }
+
+    .wrapper3 img {
+      vertical-align: middle;
+      display: inline-block
+    }
+
+    .wrapper4 {
+      height: 300px;
+      width: 300px;
+      background: #00f;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .wrapper4 img {
+      vertical-align: middle
+    }
+
+    .iblock {
+      display: inline-block;
+      height: 100%;
+      width: 0;
+      vertical-align: middle
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper1">
+    <img src="./image.png">
+  </div>
+  <div class="wrapper2">
+    <img src="./image.png">
+  </div>
+  <div class="wrapper3">
+    <span class="icenter"><img src="./image.png"></span>
+  </div>
+  <div class="wrapper4">
+    <img src="./image.png">
+    <i class="iblock"></i>
+  </div>
+</body>
+
+</html>
