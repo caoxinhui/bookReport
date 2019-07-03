@@ -36,3 +36,58 @@ useEffect(() => {
  *  就算是css的水平垂直居中，也不应该使用固定元素宽高的那种方式。哎！惨遭打脸
  */
 
+/**
+ * 通过offline下发的图片尺寸自动更新img大小
+ */
+let img = new Image()
+img.src = finalShowImage
+console.log(img.width, img.height)
+
+/**
+ * 这个时候打印出来的img.width 和 img.height 有可能是 0。
+ * 宽高都是0的这个结果很正常，因为图片的相关数据都没有被加载前它的宽高默认就是0，我们需要它加载完所有的相关数据再获取宽和高
+ * 
+ * 因此： 需要 onload 加载所有的相关数据后，取宽高
+ */
+
+
+let img = new Image()
+img.src = finalShowImage
+img.onload = () => {
+  setImgSize({ imgWidth: img.width, imgHeight: img.height })
+}
+
+
+/**
+ * 通过onload就能获取到图片的宽高了。但onload大一点的图通常都比较慢，
+ * 不实用，但只要图片被浏览器缓存，那么图片加载几乎就不用等待即可触发onload，我们要的是占位符。
+ * 所以有些人通过缓存获取也可以这么写。
+ */
+
+let img = new Image()
+img.src = finalShowImage
+if (img.complete) {
+  console.log(img.width, img.height)
+} else {
+  img.onload = function () {
+    console.log(img.width, img.height)
+  }
+}
+
+
+
+/**
+ * 通过定时循环检测获取
+ * 各浏览器执行结果都能看到通过快速获取图片大小的方法几乎都在200毫秒以内，
+ * 而onload至少五秒以上，这差别之大说明快速获取图片宽高非常实用。
+ */
+let start_time = new Date().getTime()
+let img = new Image()
+img.src = finalShowImage
+let check = () => {
+  if (img.width > 0 || img.height > 0) {
+    clearInterval(set)
+  }
+}
+let set = setInterval(check, 40)
+
