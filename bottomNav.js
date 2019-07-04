@@ -91,3 +91,18 @@ let check = () => {
 }
 let set = setInterval(check, 40)
 
+
+/**
+ * 这些操作过程要等到componentDidMount之后才能开始进行。所以会比较慢。
+ * 有了缓存之后onload就比较快了
+ */
+
+
+/**
+ * 底部导航图片已经加装完成，但是却没有立刻渲染。原因
+ *   会二次调用 useImage判断图片是否加载完成，useImage也没有占用太多时间，主要是要等到componentDidFirstMount之后才会触发事件
+ *
+ * 所以图片会先加载，然后调用useImage判断图片是否加载完成，而这个过程一定要等到 componentDidFirstMount ，因此造成 图片加载完成却没有立刻渲染的现象
+ *
+ * useImage 中的 useEffect 只会执行四次
+ */
