@@ -105,4 +105,6 @@ let set = setInterval(check, 40)
  * 所以图片会先加载，然后调用useImage判断图片是否加载完成，而这个过程一定要等到 componentDidFirstMount ，因此造成 图片加载完成却没有立刻渲染的现象
  *
  * useImage 中的 useEffect 只会执行四次
+ * 
+ *  但是在network里面是能看到图片的请求的
  */
