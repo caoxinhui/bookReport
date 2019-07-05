@@ -127,23 +127,23 @@ onTouchStart={e => {
 }}
 
 
-e.stopPropagation() 起到阻止捕获和冒泡阶段中当前事件的进一步传播
-event.preventDefault()可以取消默认事件
+// e.stopPropagation() 起到阻止捕获和冒泡阶段中当前事件的进一步传播
+// event.preventDefault()可以取消默认事件
 
-使用touchstart事件在某些场景下会出现点击穿透的现象。
-点击穿透：假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
-
-
-这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟
+// 使用touchstart事件在某些场景下会出现点击穿透的现象。
+// 点击穿透：假如页面上有两个元素A和B。B元素在A元素之上。我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素。我们发现，当我们点击B元素，B元素被隐藏了，随后，A元素触发了click事件。
 
 
-一开始这种写法为何会穿透呢，touchStart之后，蒙层消失，然后触发了click事件，click点击了产品的链接，从而跳转。
+// 这是因为在移动端浏览器，事件执行的顺序是touchstart > touchend > click。而click事件有300ms的延迟
 
 
-注：浏览器事件触发的顺序
-touchstart --> mouseover(有的浏览器没有实现) --> mousemove(一次) -->mousedown --> mouseup --> click -->touchend
+// 一开始这种写法为何会穿透呢，touchStart之后，蒙层消失，然后触发了click事件，click点击了产品的链接，从而跳转。
 
-Touch 事件中，常用的为 touchstart, touchmove, touchend 三种。除此之外还有touchcancel
+
+// 注：浏览器事件触发的顺序
+// touchstart --> mouseover(有的浏览器没有实现) --> mousemove(一次) -->mousedown --> mouseup --> click -->touchend
+
+// Touch 事件中，常用的为 touchstart, touchmove, touchend 三种。除此之外还有touchcancel
 
 ```
 
@@ -156,3 +156,7 @@ onClick={e => {
   this.handleFoldAnchor();
 }}
 ```
+
+
+ 实现数组快速浅拷贝
+ arr.slice()
