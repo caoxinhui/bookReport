@@ -1,6 +1,6 @@
 function foo() {
   var name = "kj";
-  return function() {
+  return function () {
     console.log(name);
   };
 }
@@ -16,21 +16,21 @@ add();
 
 function addCount() {
   var count = 0;
-  return function() {
+  return function () {
     count = count + 1;
     return count;
   };
 }
 
 for (var i = 0; i < 4; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i);
   }, 300);
 }
 
 for (var i = 0; i < 4; i++) {
-  setTimeout(function(i) {
-    return function() {
+  setTimeout(function (i) {
+    return function () {
       console.log(i);
     };
   }, 1000);
@@ -55,9 +55,9 @@ function apply(func, thisArg, args) {
 /**
  * 为什么 async/await 会对返回值产生一次 then 属性访问 ? 
  */
-var test = async() => new Proxy({}, {
+var test = async () => new Proxy({}, {
   get(target, name) {
-    console.log('get',name)
+    console.log('get', name)
     return 1
   },
   set(target, key, value) {
@@ -77,7 +77,13 @@ var test = async() => new Proxy({}, {
  * Promise/A+ 规范明确了 thenable 的概念，可以让不同的 promise 实现通过 thenable 互相转换
  */
 
- var test1 = async () => {
-   return { then(resolve, reject) { resolve(1)}}
- }
- console.log(await test1())
+var test1 = async () => {
+  return { then(resolve, reject) { resolve(1) } }
+}
+console.log(await test1())
+
+
+
+
+
+

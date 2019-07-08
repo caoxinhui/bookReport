@@ -162,3 +162,6 @@ conf/ gateway 文档阅读
 
 todo
 css 各个布局、canvas、SVG、react源码
+
+
+[How Browsers Work: Behind the scenes of modern web browsers](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
