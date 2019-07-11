@@ -49,3 +49,5 @@ vscode configuration of my own
 }
 ```
 
+ctrl + `+` 放大字体
+ctrl + `-` 缩小字体
