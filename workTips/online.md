@@ -67,3 +67,16 @@ online 踩坑
 
 Tips: 
   - 尝试： 更改样式，文字始终展示，图片加载成功自动覆盖文字。解决image onload判断时间长的问题。
+  - 操作： 
+  ```js
+  let emitFailed = statusDefault === 'failed'
+
+  let imgFailed = emitFailed && showImg
+   let imgStyle = {
+    width: imgReady ? `${imgWidth / 100}rem` : (imgFailed ? '0' : '1.48rem'),
+    height: imgReady ? `${imgHeight / 100}rem` : (imgFailed ? '0' : '0.98rem')
+  }
+
+  <p>{text}</p>
+
+  ```
