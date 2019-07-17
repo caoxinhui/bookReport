@@ -329,3 +329,8 @@ const getTextColor = (isCurrent, type, selectedTextColor, defaultTextColor) => {
   return textColor;
 };
 ```
+
+
+[全局获取的状态 curVideoId 放到 useEffect 中，报错curVideo is not defined](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/)
+
+useEffect  [] 中传入的变量，要在useEffect外部声明，而不是在useEffect里面声明，在里面声明报 not defined
