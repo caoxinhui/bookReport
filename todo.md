@@ -1,5 +1,3 @@
-每次周末都没事做，平时工作日积累下没有来得及整理的内容记录下来
-
 https://gist.github.com/Rich-Harris/fd6c3c73e6e707e312d7c5d7d0f3b2f9
 
 只用 react-hooks 来做状态管理的介绍文章。
@@ -168,3 +166,7 @@ css 各个布局、canvas、SVG、react源码
 
 
  react class组件 和 函数式组件写法的差别汇总
+ 
+ Window.getComputedStyle()
+ css 属性 objectFit: 'cover',
+ background-size: cover;
