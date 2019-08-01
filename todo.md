@@ -167,6 +167,6 @@ css 各个布局、canvas、SVG、react源码
 
  react class组件 和 函数式组件写法的差别汇总
  
- Window.getComputedStyle()
- css 属性 objectFit: 'cover',
- background-size: cover;
+ `Window.getComputedStyle()`
+ css 属性 `objectFit: 'cover'`,
+ `background-size: cover`;
