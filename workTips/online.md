@@ -340,3 +340,11 @@ useEffect  [] 中传入的变量，要在useEffect外部声明，而不是在use
 
 获取DOM元素宽度
 `document.querySelector(".classname")`,使用better-scroll, ul外面的包裹层与ul等款，绑定wrapper的宽度应当固定
+
+
+
+获取视频真实宽高
+```js
+document.querySelector("video").videoWidth
+document.querySelector("video").videoHeight
+```
