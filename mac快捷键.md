@@ -63,6 +63,6 @@ http://fe.surge.sh/guide/
 - command + 向上箭头 当前行向上移动 (alt + 向上箭头)
 - command + shift + pgUp/pgDown 向左/向右移动编辑器
 - ctrl + option + 向下箭头 复制光标向下批量添加内容。 （ctrl + alt + 向下箭头）
-
+- ctrl + command + Q 锁屏
 
 
