@@ -173,3 +173,5 @@ css 各个布局、canvas、SVG、react源码
 
 
 [同构](https://mp.weixin.qq.com/s/-Il3V0dtDA3JR1okK2yJyw)
+
+https://overreacted.io/how-does-the-development-mode-work/
