@@ -348,3 +348,7 @@ useEffect  [] 中传入的变量，要在useEffect外部声明，而不是在use
 document.querySelector("video").videoWidth
 document.querySelector("video").videoHeight
 ```
+
+let encodedData = window.btoa(stringToEncode);
+stringToEncode
+一个字符串, 其字符分别表示要编码为 ASCII 的二进制数据的单个字节
