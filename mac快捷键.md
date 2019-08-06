@@ -66,5 +66,6 @@ http://fe.surge.sh/guide/
 
 - ctrl + command + Q 锁屏
 
+- ctrl + command + Q 锁屏
 
 
