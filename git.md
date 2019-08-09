@@ -148,3 +148,6 @@ git config --global user.email "johnode@example.com"
 git remote show origin，可以查看remote地址，远程分支，还有本地分支与之相对应关系等信息。
 提示使用
 git remote prune origin 删除远程仓库中已经不存在的分支
+
+误操作commit
+`git reset --hard 上次的commitId`，同时清除了本地的修改
