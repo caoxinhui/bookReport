@@ -352,3 +352,5 @@ document.querySelector("video").videoHeight
 let encodedData = window.btoa(stringToEncode);
 stringToEncode
 一个字符串, 其字符分别表示要编码为 ASCII 的二进制数据的单个字节
+
+android webview 在3.0+后显示flash要启用硬件加速 ，所以会导致，Android的视频组件播放白屏的问题
