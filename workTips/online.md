@@ -354,3 +354,50 @@ stringToEncode
 一个字符串, 其字符分别表示要编码为 ASCII 的二进制数据的单个字节
 
 android webview 在3.0+后显示flash要启用硬件加速 ，所以会导致，Android的视频组件播放白屏的问题
+
+
+
+
+- 解决问题
+  - 弹出蒙层后，禁止掉蒙层下面的内容滚动
+   开始做法：
+```js
+disableWindowScroll() {
+  const bodyEl = document.querySelector("body");
+  const htmlEl = document.querySelector("html");
+  bodyEl.style.overflow = "hidden";
+  htmlEl.style.overflow = "hidden";
+}
+enableWindowScroll() {
+  const bodyEl = document.querySelector("body");
+  const htmlEl = document.querySelector("html");
+  bodyEl.style.overflow = "auto";
+  htmlEl.style.overflow = "";
+}
+```
+   - 这种方法虽然能禁用掉页面的滚动，但是如果页面超长的话，会一下滑动到页面最顶部。
+
+
+
+  - 对移动端，可以引入`touch-action`，限制为`none`，但`ios`的`safari`上不支持该属性,
+  - 这时候，就需要结合`event.preventDefault`属性来用了。注意在绑定`addEventListener`的时候，需要多传一个`options`，强调这个事件不是`passive`的，否则谷歌等新版浏览器会报错。同时最好也指定capture: true，这样可以早点禁止该事件。报错是`Unable to preventDefault inside passive event listener due to target being treated as passive.`谷歌建议一般情况下，将 `passive` 标志添加到每个没有调用 `preventDefault()` 的 `wheel`、`mousewheel`、`touchstart` 和 `touchmove` 事件侦听器,
+  - 优化后
+```js
+preventDefaultBehavior = e => {
+    e.preventDefault();
+  };
+disableWindowScroll = () => {
+  const bodyEl = document.querySelector("body");
+  bodyEl.addEventListener("touchmove", this.preventDefaultBehavior, {
+    passive: false,
+    capture: true
+  });
+}
+enableWindowScroll = () => {
+  const bodyEl = document.querySelector("body");
+  bodyEl.removeEventListener("touchmove", this.preventDefaultBehavior, {
+    passive: false,
+    capture: true
+  });
+}
+```
