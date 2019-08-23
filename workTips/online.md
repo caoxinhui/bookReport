@@ -361,6 +361,7 @@ android webview 在3.0+后显示flash要启用硬件加速 ，所以会导致，
 - 解决问题
   - 弹出蒙层后，禁止掉蒙层下面的内容滚动
    开始做法：
+   - 方法一
 ```js
 disableWindowScroll() {
   const bodyEl = document.querySelector("body");
@@ -381,7 +382,7 @@ enableWindowScroll() {
 
   - 对移动端，可以引入`touch-action`，限制为`none`，但`ios`的`safari`上不支持该属性,
   - 这时候，就需要结合`event.preventDefault`属性来用了。注意在绑定`addEventListener`的时候，需要多传一个`options`，强调这个事件不是`passive`的，否则谷歌等新版浏览器会报错。同时最好也指定capture: true，这样可以早点禁止该事件。报错是`Unable to preventDefault inside passive event listener due to target being treated as passive.`谷歌建议一般情况下，将 `passive` 标志添加到每个没有调用 `preventDefault()` 的 `wheel`、`mousewheel`、`touchstart` 和 `touchmove` 事件侦听器,
-  - 优化后
+  - 优化后方法二
 ```js
 preventDefaultBehavior = e => {
     e.preventDefault();
@@ -401,3 +402,34 @@ enableWindowScroll = () => {
   });
 }
 ```
+
+ - 方法三
+  上述方法会禁用掉浏览器的所有滚动事件
+
+  ```js
+    getScrollY = () => {
+    return window.scrollY
+  }
+
+  disableWindowScroll = () => {
+    const bodyEl = document.querySelector('body');
+    const top = this.getScrollY()
+    bodyEl.style.position = "fixed"
+    bodyEl.style.width = "100%"
+    bodyEl.style.top = -top + 'px'
+  };
+
+
+  enableWindowScroll = () => {
+    const bodyEl = document.querySelector('body');
+    //这里top 通过getComputedStyle获取top，在IOS设备是不正确的，始终为0，Android设备和浏览器端都是正常的
+    //这是为什么？
+    const top = -bodyEl.style.top.split('px')[0]
+    bodyEl.style.position = ''
+    bodyEl.style.top = ''
+    window.scrollTo(0, top)
+  };
+  ```
+`this` 的指向问题
+
+组件内是没有 `this` 的，调用的 `BaseController.js` 里面的方法，例如 `getSomeCode`， 如果 `getSomeCode` 是一个 `function(){}`，这个函数里面是拿不到 `this` 的，只有将 `getSomeCode` 定义成一个箭头函数 `getSomeCode = () => {}` 才可以拿到 `this`。并且可以通过在函数里面 `this.getAnotherCode()`调用 `BaseController.js` 中定义的 `getAnotherCode(){}` 方法，并且，如果在 `getAnotherCode` 中使用了 `this`，那么 `this` 也是全局的 `controller`
