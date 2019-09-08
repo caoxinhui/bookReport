@@ -433,3 +433,7 @@ enableWindowScroll = () => {
 `this` 的指向问题
 
 组件内是没有 `this` 的，调用的 `BaseController.js` 里面的方法，例如 `getSomeCode`， 如果 `getSomeCode` 是一个 `function(){}`，这个函数里面是拿不到 `this` 的，只有将 `getSomeCode` 定义成一个箭头函数 `getSomeCode = () => {}` 才可以拿到 `this`。并且可以通过在函数里面 `this.getAnotherCode()`调用 `BaseController.js` 中定义的 `getAnotherCode(){}` 方法，并且，如果在 `getAnotherCode` 中使用了 `this`，那么 `this` 也是全局的 `controller`
+
+
+`window.addEventListener() 与 document.addEventListener() 区别`？
+`resize` 事件只在 `window` 对象上，`DOMContentLoaded` 事件只在 `document` 对象上
