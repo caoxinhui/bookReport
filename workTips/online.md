@@ -1,3 +1,8 @@
+获取时间戳和时间戳转换
+`var timestamp1 = Date.parse( new Date())`
+`var timestamp2 = ( new Date()).valueOf();`
+`var timestamp3 = new Date().getTime();`
+
 react class组件 和 function 函数区别
 1、 ref 
   ```js
