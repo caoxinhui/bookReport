@@ -7,6 +7,7 @@ cmd + n 打开新窗口
 cmd + m 程序窗口最小化
 option + shift + f vscode格式化代码
 shift + 鼠标点击两次 选中 代码块
+cmd + p 快速查找文件
 
 
 http://fe.surge.sh/guide/
