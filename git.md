@@ -157,3 +157,10 @@ git remote prune origin 删除远程仓库中已经不存在的分支
 `git config --global --unset http.proxy` 
 取消代理
 `git config --global http.proxy` 
+
+`git` 修改多个`commit`为一个`commit`
+`git rebase -i HEAD~3`
+后面的多个`commit pick`改为`s`
+`esc`键退出编辑
+`:wq`退出
+
