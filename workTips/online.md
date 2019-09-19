@@ -442,3 +442,7 @@ enableWindowScroll = () => {
 
 `window.addEventListener() 与 document.addEventListener() 区别`？
 `resize` 事件只在 `window` 对象上，`DOMContentLoaded` 事件只在 `document` 对象上
+
+
+
+底部导航监听长按事件触发选中，安卓机在长按后不会触发click事件，所以将事件绑定在onTouchEnd上，兼容各端。
