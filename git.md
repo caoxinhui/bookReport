@@ -172,4 +172,5 @@ git clean -f ./publish
 ```js
 // merge 代码用
 git merge 分支名 --squash
+git merge abort 取消合并
 ```
