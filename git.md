@@ -164,3 +164,12 @@ git remote prune origin 删除远程仓库中已经不存在的分支
 `esc`键退出编辑
 `:wq`退出
 
+```js
+git checkout ./publish
+git clean -f ./publish
+```
+
+```js
+// merge 代码用
+git merge 分支名 --squash
+```
