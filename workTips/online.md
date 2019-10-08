@@ -1,3 +1,4 @@
+IOS 端 无法识别 "year-month-day hour:minutes:seconds"格式，将"-"转成"/"
 获取时间戳和时间戳转换
 `var timestamp1 = Date.parse( new Date())`
 `var timestamp2 = ( new Date()).valueOf();`
