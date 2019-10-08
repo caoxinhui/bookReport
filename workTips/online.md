@@ -446,3 +446,7 @@ enableWindowScroll = () => {
 
 
 底部导航监听长按事件触发选中，安卓机在长按后不会触发click事件，所以将事件绑定在onTouchEnd上，兼容各端。
+
+
+获取给定时间时间戳
+new Date("2019-12-12 00:11:22").getTime()
