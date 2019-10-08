@@ -1,3 +1,9 @@
+new Date()返回的是系统时间，在js服务端，也是系统时间，因此，在前端获取到的new Date始终是一致的
+
+
+
+
+
 IOS 端 无法识别 "year-month-day hour:minutes:seconds"格式，将"-"转成"/"
 
 
