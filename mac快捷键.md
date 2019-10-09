@@ -1,3 +1,4 @@
+open ~/.ssh 
 ctrl+tab 切换Chrome tab
 command + tab 切换 程序 tab
 ctrl + a 光标移动到行首
