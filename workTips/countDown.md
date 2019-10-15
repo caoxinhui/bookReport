@@ -55,8 +55,8 @@ console.log('script end')
   const timerRef = useRef();
   const lastTimeStampRef = useRef();
   const updateSinceEffectRef = useRef();
-  const remainTimeRef = useRef();
-  remainTimeRef.current = remainingTime;
+  // const remainTimeRef = useRef();
+  // remainTimeRef.current = remainingTime;
   // updateInitialData, 重新请求接口之后，要将 lastTimeStamp 置为 timeStamp，从当前的 timeStamp 开始倒计时
   // let [lastTimeStamp, setLastTimeStamp] = useState(0);
   // updateSinceUseEffect 标记是否重置了 lastTimeStamp
@@ -65,9 +65,9 @@ console.log('script end')
   const [milliSecs, setMilliSecs] = useState(Number(remainingTime));
 
   const formatTime = async timestamp => {
-    let remainingTime = remainTimeRef.current;
     if (!updateSinceEffectRef.current) {
-      lastTimeStampRef.current = timestamp;
+    window.cancelAnimationFrame(timerRef.current);
+    lastTimeStampRef.current = timestamp;
       updateSinceEffectRef.current = true;
     }
     // 对初始的 lastTimestamp 进行赋值，将 timestamp 置为从 0 开始，否则时间会超前结束，timeStamp 从页面加载开始计时
