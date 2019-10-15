@@ -1,3 +1,14 @@
+
+
+Safari识别电话号码功能会自动将数字识别成电话号码，并且会修改对应的数字颜色为黑色，添加代码禁用识别
+```js
+ <meta name="format-detection" content="telephone=no" />
+```
+
+
+
+
+
 new Date()返回的是系统时间，在js服务端，也是系统时间，因此，在前端获取到的new Date始终是一致的
 
 
