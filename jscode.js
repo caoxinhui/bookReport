@@ -86,4 +86,14 @@ console.log(await test1())
 
 
 
-
+```js
+function always(value) {
+  return function(){
+    return value
+  }
+}
+var f = always(function(){})
+var g = always(function(){})
+f() === f()  // true 闭包会捕获一个值（或引用），并多次返回相同的值
+g() === f()  // false 每一个新的闭包都会捕获不一样的值
+```
