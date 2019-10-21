@@ -2,6 +2,12 @@ git reset --soft HEAD^ 撤销commit，并保留更改
 
 
 
+
+`git remote prune origin` 清理远程分支，把本地不存在的远程分支删除
+
+
+
+
 从远程拉代码，并切换到对应的分支
 git checkout -b 本地分支名x origin/远程分支名x
 或者
