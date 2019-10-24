@@ -184,3 +184,10 @@ git clean -f ./publish
 git merge 分支名 --squash
 git merge abort 取消合并
 ```
+
+
+撤销已经提交的commit
+
+`git reset --hard <需要回退到的版本号（只需输入前几位）>`
+
+`git push origin <分支名> --force`
