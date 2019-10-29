@@ -1,69 +1,21 @@
-git reset --soft HEAD^ 撤销commit，并保留更改
-
-
-
+`git reset --soft HEAD^` 撤销commit，并保留更改
 
 `git remote prune origin` 清理远程分支，把本地不存在的远程分支删除，同时`git branch -a` 拉到的也是远程最新的分支，不会保留已删除的远程的分支
 
-
-
-
-从远程拉代码，并切换到对应的分支
-git checkout -b 本地分支名x origin/远程分支名x
-或者
-git fetch origin 远程分支名x:本地分支名x
-
 修改git的用户名和密码
-Git config –global user.name 用户名
-Git config –global user.email 邮箱名
+`Git config –global user.name` 用户名
+`Git config –global user.email` 邮箱名
 
 
-在当前分支下新建一个分支并切换到新分支：
-Git checkout –b release_booking_reset
 回退到之前的版本号：
-Git reset –hard 提交版本号
-Gitk –all查看版本信息
-
-
-拷贝百事通的代码并在百事通的代码上做相应更改并发到新的分支上
-Git status查看当前分支以及当前状态
-Git branch查看当前分支
-Git fetch origin 拉去分支
-Git remote –v查看用到的分支
-Git checkout –b release_insureBestone origin/release_insureBestone
-Gitk –all
-Git –d release_insureBestone删除一个分支
-Git log打印日志
-Git push
-
-在百事通分支的基础上，通过git checkout –b release-new-bestone新建了一个分支，这个分支的代码跟百事通分支的代码是一样的。
-Git push –u origin release-new-bestone将当前代码push到远程
-
-
-同伴新建分支后，在仓库里面可以看到这个分支，但是本地git branch –a却拉取不到。
-需要拉去下远程代码
-1 git fetch origin
-2 git checkout –b 新分支名 origin/新分支名
-
-
-
-合并远程分支到当前分支
-Git merge –no-ff origin/release-WechatMiniProgram
-
-远程先开好分支然后拉到本地
-git checkout -b feature-branch origin/feature-branch    //检出远程的feature-branch分支到本地
-本地先开好分支然后推送到远程
-$  git checkout -b feature-branch    //创建并切换到分支feature-branch  
-$  git push origin feature-branch:feature-branch    //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)
+`Git reset –hard` 提交版本号
 
 
 删除远程分支(不需要先切换到其他分支)
-git push origin --delete 要删除的分支名 
+`git push origin --delete 要删除的分支名` 
 
-删除本地分支
-需要先切换到其他分支
-git branch -d 本地分支名
-git branch -D 本地分支名(分支没有完全merge会报错提示，改为强制删除即可)
+`git branch -d 本地分支名`
+`git branch -D 本地分支名(分支没有完全merge会报错提示，改为强制删除即可)`
 
 
 git 练习
