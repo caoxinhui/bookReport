@@ -120,3 +120,27 @@ console.log('script end')
   }, [isFreshForCountDown]);
 
 ```
+
+通过`document.addEventListener("visibilitychange",this.diffTime,false)` 触发可视监听事件。
+但是，通过浏览器打开的页面，比如微信浏览器，`safari`浏览器，其他手机自带浏览器等等，是在当前页面新开的，所以不会触发`visibilitychange`事件，相当于一直在当前页面，从来没有离开视口。而且浏览器会对打开的也没进行缓存，页面回退不会重新从`componentwillcreate`生命周期开始，只会从`componentdidmount`开始，也就是服务端生成的`html`不会重新请求，只会对客户端的操作重新开始执行。
+ 解决方法是
+ 静态`html`中添加
+```html
+<input type="hidden" id="refreshed" value="no" />
+```
+`componentDidMount`中添加
+ ```js
+ disableHTMLCache = () => {
+    if (typeof window !== "undefined") {
+      window.onload = function() {
+        let e = document.getElementById("refreshed");
+        if (e.value == "no") {
+          e.value = "yes";
+        } else {
+          e.value = "no";
+          location.reload();
+        }
+      };
+    }
+  };
+ ```
