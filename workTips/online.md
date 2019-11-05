@@ -4,6 +4,8 @@
 
 
 
+
+
 Safari识别电话号码功能会自动将数字识别成电话号码，并且会修改对应的数字颜色为黑色，添加代码禁用识别
 ```js
  <meta name="format-detection" content="telephone=no" />
