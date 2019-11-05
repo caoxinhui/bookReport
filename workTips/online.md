@@ -2,6 +2,9 @@
 在`.map`等操作的时候，判断是否是数组，否则经常会报 `can not .map of undefined` ，能给默认值的时候都要给默认值，否则会报`undefined`错误
 
 
+`functional component`函数的引用可以通过闭合标签形式，例如：`<Component {...props}/>`，也可以通过执行函数的形式，`{Component()}`， 但是这种方法限制会比较多
+
+
 
 
 
