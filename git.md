@@ -1,3 +1,9 @@
+全局安装`git-cz`
+`npm install -g git-cz
+git-cz`
+`commit` 之前 使用 `git-cz`
+
+
 `git reset --soft HEAD^` 撤销commit，并保留更改
 
 `git remote prune origin` 清理远程分支，把本地不存在的远程分支删除，同时`git branch -a` 拉到的也是远程最新的分支，不会保留已删除的远程的分支
