@@ -2,6 +2,10 @@ open ~/.ssh
 
 
 
+`cmd + M` 最小化当前窗口
+`cmd + w` 关闭当前窗口
+
+
 ctrl+tab 切换Chrome tab
 command + tab 切换 程序 tab
 ctrl + a 光标移动到行首
