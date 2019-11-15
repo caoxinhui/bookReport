@@ -1,6 +1,8 @@
 open ~/.ssh
 
 
+` option + delete ` 删除后一个字符
+
 
 `cmd + M` 最小化当前窗口
 `cmd + w` 关闭当前窗口
