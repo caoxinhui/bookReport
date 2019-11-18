@@ -4,4 +4,8 @@
 
 [requestAnimationFrame use hooks](https://css-tricks.com/using-requestanimationframe-with-react-hooks/)
 
-
+```js
+const whyDidYouRender = require('@welldone-software/why-did-you-render');
+whyDidYouRender(React);
+ImageWithHotZone.whyDidYouRender = true;
+```
