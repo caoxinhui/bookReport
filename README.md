@@ -4,6 +4,9 @@
 
 [requestAnimationFrame use hooks](https://css-tricks.com/using-requestanimationframe-with-react-hooks/)
 
+
+[typescript](https://medium.com/@martin_hotell/react-typescript-and-defaultprops-dilemma-ca7f81c661c7)
+
 ```js
 const whyDidYouRender = require('@welldone-software/why-did-you-render');
 whyDidYouRender(React);
