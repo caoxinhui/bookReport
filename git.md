@@ -1,4 +1,4 @@
-项目安装在 `~` 目录下
+- 项目安装在 `~` 目录下
 
 `git pull` 的时候 ` error: cannot open .git/FETCH_HEAD: Permission denied ` ,因为没有当前目录的修改权限
 
@@ -7,7 +7,7 @@
 
 
 
-全局安装`git-cz`
+- 全局安装`git-cz`
 `npm install -g git-cz
 git-cz`
 `commit` 之前 使用 `git-cz`
