@@ -1,3 +1,12 @@
+项目安装在 `~` 目录下
+
+`git pull` 的时候 ` error: cannot open .git/FETCH_HEAD: Permission denied ` ,因为没有当前目录的修改权限
+
+使用命令
+`sudo chmod -R g+w .git ` 修改目录权限。即可正常 `git pull`
+
+
+
 全局安装`git-cz`
 `npm install -g git-cz
 git-cz`
