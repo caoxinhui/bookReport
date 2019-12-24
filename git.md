@@ -159,3 +159,9 @@ git merge abort 取消合并
 `git reset --hard <需要回退到的版本号（只需输入前几位）>`
 
 `git push origin <分支名> --force`
+
+
+
+
+`xcrun simctl list devices`  获取所有设备名称
+`crn-cli run-ios --port=5390 --simulator="iPad Air (3rd generation)" --reset`  指定打开设备
