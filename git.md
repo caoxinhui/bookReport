@@ -165,3 +165,13 @@ git merge abort 取消合并
 
 `xcrun simctl list devices`  获取所有设备名称
 `crn-cli run-ios --port=5390 --simulator="iPad Air (3rd generation)" --reset`  指定打开设备
+
+
+关联本地项目与GitHub
+1、在本地项目git init
+2、git add .
+3、git commit -m "message"
+4、在GitHub建立一个项目
+5、复制项目HTTPS地址
+6、git remote add origin https 地址
+7、git push -u origin master
